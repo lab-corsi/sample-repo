@@ -31,7 +31,7 @@ jobs:
           eslint-args: '--ignore-path=.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
-          working-dir: my-app
+          working-directory: my-app
 
       - run: npm run build
 
