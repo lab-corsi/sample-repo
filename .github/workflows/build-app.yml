@@ -25,6 +25,14 @@ jobs:
       - name: install dependencies
         run: npm ci
 
+      - name: run eslint
+        run: npx eslint -f html -o eslint-report.html
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eslint-html
+          path: eslint-report.html
+
       - run: npm run build
 
 
