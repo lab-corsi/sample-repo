@@ -25,12 +25,8 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - name: Run ESLint
-        uses: ninosaurus/eslint-check@v5
-        with:
-          eslint-config-path: "./my-app/eslint.config.mjs"
-          custom-directory: "./my-app"
-          repo-token: ${{secrets.GITHUB_TOKEN}}
+      - name: run linter
+        run: npm run lint
 
       - run: npm run build
 
