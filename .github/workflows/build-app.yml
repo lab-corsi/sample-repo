@@ -1,4 +1,7 @@
 name: build-react-app
+defaults:
+  run:
+    working-directory: my-app
 on:
   push:
     branches: [main]
@@ -12,9 +15,7 @@ jobs:
       
       - name: install dependencies
         run: npm ci
-        working-directory: my-app
 
       - run: npm run build
-        working-directory: my-app
 
 
