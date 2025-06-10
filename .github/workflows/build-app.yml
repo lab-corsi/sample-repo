@@ -1,0 +1,30 @@
+name: build-react-app
+defaults:
+  run:
+    working-directory: my-app
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  build-react:
+    strategy:
+      matrix: 
+        node-version: [18,20,22]
+        os: [ubuntu-latest, windows-latest]
+
+    runs-on: ${{matrix.os}}
+    steps:
+      - uses: actions/checkout@v4
+    
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - name: install dependencies
+        run: npm ci
+
+      - run: npm run build
+
+
