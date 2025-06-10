@@ -25,12 +25,12 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - uses: sibiraj-s/action-eslint@v3
+      - name: Run ESLint
+        uses: ninosaurus/eslint-check@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # optional
-          extensions: 'js,jsx,ts,tsx'
-          annotations: true
-          working-directory: my-app
+          eslint-config-path: "./my-app/eslint.config.mjs"
+          custom-directory: "./my-app"
+          repo-token: ${{secrets.GITHUB_TOKEN}}
 
       - run: npm run build
 
