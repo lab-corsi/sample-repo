@@ -1,7 +1,4 @@
 name: build-react-app
-defaults:
-  run:
-    working-directory: my-app
 on:
   push:
     branches: [main]
@@ -9,6 +6,9 @@ on:
     branches: [main]
 jobs:
   build-react:
+    defaults:
+      run:
+        working-directory: my-app
     strategy:
       matrix: 
         node-version: [18,20,22]
