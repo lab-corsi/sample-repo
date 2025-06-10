@@ -12,7 +12,9 @@ jobs:
       
       - name: install dependencies
         run: npm ci
-        
-      - run: npm run build 
+        working-directory: my-app
+
+      - run: npm run build
+        working-directory: my-app
 
 
