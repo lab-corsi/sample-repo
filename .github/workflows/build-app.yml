@@ -33,11 +33,6 @@ jobs:
           annotations: true
           working-dir: my-app
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: eslint-html
-          path: eslint-report.html
-
       - run: npm run build
 
 
