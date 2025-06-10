@@ -25,8 +25,13 @@ jobs:
       - name: install dependencies
         run: npm ci
 
-      - name: run eslint
-        run: npx eslint -f html -o eslint-report.html
+      - uses: sibiraj-s/action-eslint@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # optional
+          eslint-args: '--ignore-path=.gitignore --quiet'
+          extensions: 'js,jsx,ts,tsx'
+          annotations: true
+          working-dir: my-app
 
       - uses: actions/upload-artifact@v4
         with:
